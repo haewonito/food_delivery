@@ -1,0 +1,27 @@
+<h1>Inventory Index Page:</h1>
+
+<% @inventories.each do |inventory| %>
+  <section class="inventory">
+    <p class="id">
+    Inventory ID: <%= inventory.id %><br>
+    </p>
+    <p class="product_id">
+    Product ID: <%= inventory.product_id %><br>
+    </p>
+    <p class="product_name">
+    Product Name: <%= inventory.product.name %><br>
+    </p>
+    <p class="warehouse">
+    Warehouse: <%= inventory.warehouse.location_name %><br>
+    </p>
+    <p class="unit_price">
+    Unit Price: $<%= inventory.unit_price %><br>
+    </p>
+    <p class="quantity">
+    Quantity: <%= inventory.quantity %><br>
+    </p>
+    <p class="total_value">
+    Total Value: $<%= inventory.total_value %><br><br>
+    </p>
+  </section>
+<% end %>
