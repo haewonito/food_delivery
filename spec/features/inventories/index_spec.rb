@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Inventory index page", type: :feature do
+RSpec.describe "Inventories Index Page", type: :feature do
   describe "as a visitor" do
     before(:each) do
 
@@ -29,7 +29,7 @@ RSpec.describe "Inventory index page", type: :feature do
       @inv8  = Inventory.create!(unit_price: 3.99, quantity: 40, total_value: 159.60, product_id: @milk.id, warehouse_id: @aurora_warehouse.id)
       @inv9  = Inventory.create!(unit_price: 3.99, quantity: 5, total_value: 19.95, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
 
-      visit "/inventories"
+      visit inventories_path
     end
 
     it "I see a list of inventory items" do
