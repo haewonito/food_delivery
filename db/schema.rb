@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_233152) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "unit_price"
-    t.string "storage_requirement"  #rt_perishable, refrigerated, frozen, on-perishable
+    t.string "storage_requirement"  #rt_perishable, refrigerated, frozen, non-perishable
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
