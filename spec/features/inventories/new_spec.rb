@@ -11,7 +11,7 @@ RSpec.describe 'Inventories New Page' do
     end
 
     it 'has a form to create a new inventory' do
-save_and_open_page
+
       fill_in 'Product ID:', with: "#{@potatoes.id}"
       fill_in 'Quantity:', with: "10"
       fill_in 'Warehouse ID:', with: "#{@denver_warehouse.id}"
@@ -20,7 +20,6 @@ save_and_open_page
       inventory = Inventory.last
       total_value = @potatoes.unit_price * 10
 
-      require "pry"; binding.pry
       expect(current_path).to eq(inventories_path)
       expect(inventory.product_id).to eq(@potatoes.id)
       expect(inventory.quantity).to eq(10)

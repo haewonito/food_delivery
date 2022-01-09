@@ -1,3 +1,14 @@
 <h1>Create a new inventory</h1>
 
-<%= render partial: 'form', locals: { inventory: @inventory, action: "create" } %>
+<%= form_with url: inventories_path, local: true do |f| %>
+  <%= f.label :product_id, "Product ID:" %>
+  <%= f.number_field :product_id %><br><br>
+
+  <%= f.label :quantity, "Quantity:" %>
+  <%= f.number_field :quantity %><br><br>
+
+  <%= f.label :warehouse_id, "Warehouse ID:" %>
+  <%= f.number_field :warehouse_id %><br><br>
+
+  <%= f.submit %>
+<% end %>
