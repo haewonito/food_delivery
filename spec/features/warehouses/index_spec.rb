@@ -47,6 +47,24 @@ RSpec.describe "Warehouse Index Page", type: :feature do
     end
   end
 
+  it "for each warehouse, I see a link to see its inventories" do
+    within(first('.warehouse')) do
+      click_link "List of Inventories"
+      expect(current_path).to eq(warehouse_path(@denver_warehouse.id))
+    end
+
+    inventory = @denver_warehouse.inventories.first
+
+    within(first('.inventory')) do
+      expect(page).to have_content("Inventory ID: #{inventory.id}")
+      expect(page).to have_content("Product ID: #{inventory.product.id}")
+      expect(page).to have_content("Product Name: #{inventory.product.name}")
+      expect(page).to have_content("Unit Price: $#{inventory.unit_price}")
+      expect(page).to have_content("Quantity: #{inventory.quantity}")
+      expect(page).to have_content("Total Value: $#{inventory.total_value}")
+    end
+  end
+
   xit "for each warehouse, I see a button to edit" do
     within(first('.warehouse')) do
       click_link "Edit"
