@@ -1,0 +1,19 @@
+<h1>Welcome to Warehouse Index Page!</h1>
+
+<% @warehouses.each do |warehouse| %>
+  <section class="warehouse">
+    <p class="location_name">
+    Location Name: <%= warehouse.location_name %><br>
+    </p>
+    <p class="phone_number">
+    Phone Number: <%= warehouse.phone_number %><br>
+    </p>
+    <p class="address">
+    Address: <%= warehouse.address %><br>
+    </p>
+
+    <%= link_to "List of Inventories", warehouse_path(warehouse.id) %>
+    <%= link_to "Edit", edit_warehouse_path(warehouse.id) %>
+    <%= link_to "Delete", warehouse_path(warehouse.id), method: :delete %>
+  </section>
+<% end %>
