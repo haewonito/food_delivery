@@ -242,6 +242,8 @@
         "lines": [
           1,
           1,
+          null,
+          1,
           null
         ]
       },
@@ -251,33 +253,142 @@
           null
         ]
       },
-      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/product.rb": {
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/features/inventories/index_spec.rb": {
         "lines": [
+          1,
+          null,
+          1,
           1,
           1,
           null,
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           null
         ]
       },
-      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/application_record.rb": {
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/features/inventories/new_spec.rb": {
         "lines": [
           1,
+          null,
           1,
-          null
-        ]
-      },
-      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/warehouse.rb": {
-        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           null,
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/features/welcome/index_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/models/inventory_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          null,
           null
         ]
       },
@@ -296,11 +407,81 @@
           null
         ]
       },
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/models/product_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/product.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/spec/models/warehouse_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/warehouse.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/haewonjeon/intership_take_home/food_delivery/app/controllers/inventories_controller.rb": {
         "lines": [
           1,
           1,
-          1,
+          6,
           null,
           null,
           1,
@@ -311,12 +492,12 @@
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
           null,
-          0,
+          1,
           null,
           null,
           null,
@@ -347,7 +528,7 @@
           1,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null
@@ -360,6 +541,6 @@
         ]
       }
     },
-    "timestamp": 1641772396
+    "timestamp": 1642026036
   }
 }
