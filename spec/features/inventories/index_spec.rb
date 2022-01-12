@@ -32,7 +32,7 @@ RSpec.describe "Inventories Index Page", type: :feature do
       visit inventories_path
     end
 
-    it "I see a list of inventory items" do
+    it "I see a list of inventory items with details" do
       expect(page).to have_css(".inventory", count: 9)
 
       within(first('.inventory')) do
@@ -53,6 +53,21 @@ RSpec.describe "Inventories Index Page", type: :feature do
         expect(page).to have_content("Quantity: #{@inv1.quantity}")
         expect(page).to have_content("Total Value: $#{@inv1.total_value}")
       end
+    end
+
+    it "for each inventory, I see a button to edit" do
+      within(first('.inventory')) do
+        click_link "Edit"
+        expect(current_path).to eq(edit_inventory_path(@inv1.id))
+      end
+    end
+
+    it "for each inventory, I see a button to delete and it deletes" do
+      within(first('.inventory')) do
+        click_link "Delete"
+        expect(current_path).to eq(inventories_path)
+      end
+      expect(page).to_not have_content("Inventory ID: #{@inv1.id}")
     end
   end
 end
