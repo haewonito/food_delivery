@@ -26,6 +26,8 @@ allow users to change unit_price on product?  becuase I
 
 better way to do inventories_controller#create (for fetching unit price and total_value)  call_back?
 
+put flash messages in the controller when things are successfully updated, etc
+
 
 
 process:

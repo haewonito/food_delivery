@@ -65,10 +65,10 @@ RSpec.describe "Warehouse Index Page", type: :feature do
     end
   end
 
-  xit "for each warehouse, I see a button to edit" do
+  it "for each warehouse, I see a button to edit" do
     within(first('.warehouse')) do
       click_link "Edit"
-      expect(current_path).to eq(edit_warehouse_path(@inv1.id))
+      expect(current_path).to eq(edit_warehouse_path(@denver_warehouse.id))
     end
   end
 

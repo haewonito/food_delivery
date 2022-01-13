@@ -15,9 +15,19 @@ class WarehousesController < ApplicationController
   end
 
   def edit
+    @warehouse = Warehouse.find(params[:id])
   end
 
   def update
+    warehouse = Warehouse.find(params[:id])
+    warehouse.update(warehouse_params)
+    redirect_to warehouses_path
+  end
+
+  private
+
+  def warehouse_params
+    params.permit(:location_name, :phone_number, :address)
   end
 
 end
