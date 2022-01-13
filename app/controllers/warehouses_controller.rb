@@ -12,6 +12,8 @@ class WarehousesController < ApplicationController
   end
 
   def create
+    warehouse = Warehouse.create(warehouse_params)
+    redirect_to warehouses_path
   end
 
   def edit

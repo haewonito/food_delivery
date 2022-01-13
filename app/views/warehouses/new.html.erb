@@ -1,1 +1,14 @@
 <h1>Create a New Warehouse:</h1>
+
+<%= form_with url: warehouses_path, method: :post, local: true do |f| %>
+  <%= f.label :location_name, "Location Name:" %>
+  <%= f.text_field :location_name %><br><br>
+
+  <%= f.label :phone_number, "Phone Number:" %>
+  <%= f.telephone_field :phone_number %><br><br>
+
+  <%= f.label :address, "Address:" %>
+  <%= f.text_field :address %><br><br>
+
+  <%= f.submit %>
+<% end %>
