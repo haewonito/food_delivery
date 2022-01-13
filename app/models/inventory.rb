@@ -3,6 +3,16 @@ class Inventory < ApplicationRecord
   belongs_to :warehouse
 
   validates_presence_of :quantity
+  #
+  # def self.search(keyword)
+  #   if keyword.scan(/\D/).empty?  #true only if all digits or empty
+  #     find(keyword.to_i)
+  #   else
+  #     Inventory
+  #     .joins
+  #     .where("name ILIKE ?", "%#{keyword}%")
+  #   end
+  # end
 end
 
 #instead of total_value put in manually, have a .total_value

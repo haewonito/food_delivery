@@ -28,7 +28,15 @@ better way to do inventories_controller#create (for fetching unit price and tota
 
 put flash messages in the controller when things are successfully updated, etc
 
-
+#### adding inventory #####
+<% if @inventories_found %>
+<h3>Search Result: </h3>
+<% @inventories_found.each do |inventory| %>
+  <%= link_to "#{inventory.id}", inventory_path(inventory.id) %>
+  <%= button_to "Add to the #{warehouse.location_name} Warehouse", warehouse_path, method: :post %>
+<% end %>
+<% end %>  
+I think I can just do inventory.update and update the warehouse_id?
 
 process:
 1. do the initial set up, set up the migration files and models relations. CHECKOUT TO A DIFFERENT BRANCH, do the relations and validations tests

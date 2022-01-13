@@ -1,4 +1,18 @@
-<h1>Here are the list of inventories for <%= "#{@warehouse.location_name}" %> Warehouse:</h1>
+<h2>Search for an inventory by its ID or product name to add to the warehouse:</h2>
+
+<section>
+  <%= form_with url: warehouse_path(@warehouse.id), method: :get, local: true do |f| %>
+    <%= f.label :keyword, "Keyword for Searching Inventory:" %>
+    <%= f.text_field :keyword %>
+    <%= f.submit "Submit Search" %><br>
+  <% end %>
+  <% if @inventory_found %>
+    <%= link_to "Inventory #{@inventory_found.id}", inventory_path(@inventory_found.id) %>
+    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", "/warehouses/#{@warehouse.id}/#{@inventory_found.id}", method: :post %>
+  <% end %>
+</section>
+
+<h2>Here are the list of inventories for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
 <% @inventories.each do |inventory| %>
   <section class="inventory">

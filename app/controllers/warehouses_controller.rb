@@ -6,6 +6,11 @@ class WarehousesController < ApplicationController
   def show
     @warehouse = Warehouse.find(params[:id])
     @inventories = @warehouse.inventories
+#keyword at the moment is assumed to be an integer for inventory.id
+    if params[:keyword]
+      # @inventories_found = Inventory.search(params[:keyword])
+      @inventory_found = Inventory.find(params[:keyword])
+    end
   end
 
   def new
