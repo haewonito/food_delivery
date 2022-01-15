@@ -64,7 +64,7 @@ RSpec.describe "Warehouse Show Page", type: :feature do
     end
   end
 
-  xit "for each inventory, I see a button to delete and it deletes" do
+  xit "for each inventory, I see a button to remove from the list" do
 
     within(".inventory#{@inv1.id}") do
       click_link "Delete"

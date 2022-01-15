@@ -1,0 +1,17 @@
+<h3>Assign Inventory <%= @inventory.id %> to a Different Warehouse</h3>
+
+<%= form_with url: inventory_path(@inventory), method: :patch, local: true do |f| %>
+  <%= f.label :product_id, "Product ID:" %>
+  <%= f.number_field :product_id %><br><br>
+
+  <%= f.label :quantity, "Quantity:" %>
+  <%= f.number_field :quantity %><br><br>
+
+  <%= f.label :warehouse_id, "Warehouse ID:" %>
+  <%= f.number_field :warehouse_id %><br><br>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>If you want to delete the inventory completely, go to its show page:</h3>
+<%= link_to "Inventory #{@inventory.id} Show Page", inventory_path(@inventory.id) %>

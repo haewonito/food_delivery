@@ -34,7 +34,7 @@
     <p class="total_value">
     Total Value: $<%= inventory.total_value %><br><br>
     </p>
-    <%= link_to "Edit", edit_inventory_path(inventory.id) %>
+    <%= link_to "Remove from List", edit_warehouse_inventory_path(@warehouse.id, inventory.id), method: :get %>
     <%= link_to "Delete", warehouse_inventory_path(inventory.id), method: :delete %>
   </section>
 <% end %>
