@@ -8,7 +8,7 @@
   <% end %>
   <% if @inventory_found %>
     <%= link_to "Inventory #{@inventory_found.id}", inventory_path(@inventory_found.id) %>
-    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", "/warehouses/#{@warehouse.id}/#{@inventory_found.id}", method: :post %>
+    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", "/warehouses/#{@warehouse.id}/#{@inventory_found.id}", method: :patch %>
   <% end %>
 </section>
 

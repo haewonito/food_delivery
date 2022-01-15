@@ -29,9 +29,28 @@ RSpec.describe "Warehouse Show Page", type: :feature do
 
     visit warehouse_path(@denver_warehouse.id)
   end
-  it "has a button to search and add an inventory" do
-    
+
+  it "can search for inventories by id and, get a link to the show page" do
+    expect(page).to_not have_content("Inventory ID: #{@inv2.id}")
+
+    fill_in :keyword, with: "#{@inv2.id}"
+    click_button "Submit Search"
+
+    click_link "Inventory #{@inv2.id}"
+    expect(current_path).to eq("/inventories/#{@inv2.id}")
   end
+
+  it "can search for inventories by id and add it to the warehouse" do
+    expect(page).to_not have_content("Inventory ID: #{@inv2.id}")
+
+    fill_in :keyword, with: "#{@inv2.id}"
+    click_button "Submit Search"
+    click_button "Add to the #{@denver_warehouse.location_name} Warehouse"
+
+    expect(page).to have_content("Inventory ID: #{@inv2.id}")
+    expect(@denver_warehouse.inventories).to include(@inv2)
+  end
+
   it "lists all inventories belonging to that warehouse" do
     inventory = @denver_warehouse.inventories.first
 
@@ -45,5 +64,6 @@ RSpec.describe "Warehouse Show Page", type: :feature do
     end
   end
 
-  it ""
+  it "" do
+  end
 end
