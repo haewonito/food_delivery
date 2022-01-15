@@ -8,14 +8,14 @@
   <% end %>
   <% if @inventory_found %>
     <%= link_to "Inventory #{@inventory_found.id}", inventory_path(@inventory_found.id) %>
-    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", "/warehouses/#{@warehouse.id}/#{@inventory_found.id}", method: :patch %>
+    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", warehouse_inventory_path(@warehouse.id, @inventory_found.id), method: :patch %>
   <% end %>
 </section>
 
 <h2>Here are the list of inventories for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
 <% @inventories.each do |inventory| %>
-  <section class="inventory">
+  <section class="inventory<%= inventory.id %>">
     <p class="id">
     Inventory ID: <%= inventory.id %><br>
     </p>
@@ -35,6 +35,6 @@
     Total Value: $<%= inventory.total_value %><br><br>
     </p>
     <%= link_to "Edit", edit_inventory_path(inventory.id) %>
-    <%= link_to "Delete", inventory_path(inventory.id), method: :delete %>
+    <%= link_to "Delete", warehouse_inventory_path(inventory.id), method: :delete %>
   </section>
 <% end %>

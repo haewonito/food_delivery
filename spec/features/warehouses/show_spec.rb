@@ -54,7 +54,7 @@ RSpec.describe "Warehouse Show Page", type: :feature do
   it "lists all inventories belonging to that warehouse" do
     inventory = @denver_warehouse.inventories.first
 
-    within(first('.inventory')) do
+    within(".inventory#{inventory.id}") do
       expect(page).to have_content("Inventory ID: #{inventory.id}")
       expect(page).to have_content("Product ID: #{inventory.product.id}")
       expect(page).to have_content("Product Name: #{inventory.product.name}")
@@ -64,6 +64,12 @@ RSpec.describe "Warehouse Show Page", type: :feature do
     end
   end
 
-  it "" do
+  xit "for each inventory, I see a button to delete and it deletes" do
+
+    within(".inventory#{@inv1.id}") do
+      click_link "Delete"
+      expect(current_path).to eq(inventories_path)
+    end
+    expect(page).to_not have_content("Inventory ID: #{@inv1.id}")
   end
 end

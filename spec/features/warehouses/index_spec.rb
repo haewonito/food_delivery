@@ -48,13 +48,13 @@ RSpec.describe "Warehouse Index Page", type: :feature do
 
   it "for each warehouse, I see a link to see its inventories" do
     within(first('.warehouse')) do
-      click_link "List of Inventories"
+      click_link "Show Page"
       expect(current_path).to eq(warehouse_path(@denver_warehouse.id))
     end
 
     inventory = @denver_warehouse.inventories.first
 
-    within(first('.inventory')) do
+    within(".inventory#{inventory.id}") do
       expect(page).to have_content("Inventory ID: #{inventory.id}")
       expect(page).to have_content("Product ID: #{inventory.product.id}")
       expect(page).to have_content("Product Name: #{inventory.product.name}")
@@ -69,13 +69,5 @@ RSpec.describe "Warehouse Index Page", type: :feature do
       click_link "Edit"
       expect(current_path).to eq(edit_warehouse_path(@denver_warehouse.id))
     end
-  end
-
-  xit "for each inventory, I see a button to delete and it deletes" do
-    within(first('.inventory')) do
-      click_link "Delete"
-      expect(current_path).to eq(inventories_path)
-    end
-    expect(page).to_not have_content("Inventory ID: #{@inv1.id}")
   end
 end

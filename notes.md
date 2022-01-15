@@ -24,6 +24,7 @@ allow users to change unit_price on product?  becuase I
   because there might be conflicts if everyone's allowed to change that.
   might be worth prepopulating it, so that the user can give different unit_price, if needs be)
 
+"/warehouses/#{@warehouse.id}/#{@inventory_found.id}"
 better way to do inventories_controller#create (for fetching unit price and total_value)  call_back?
 
 put flash messages in the controller when things are successfully updated, etc

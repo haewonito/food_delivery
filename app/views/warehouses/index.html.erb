@@ -12,7 +12,7 @@
     Address: <%= warehouse.address %><br>
     </p>
 
-    <%= link_to "List of Inventories", warehouse_path(warehouse.id) %>
+    <%= link_to "Show Page", warehouse_path(warehouse.id) %>
     <%= link_to "Edit", edit_warehouse_path(warehouse.id) %>
     <%= link_to "Delete", warehouse_path(warehouse.id), method: :delete %>
   </section>
