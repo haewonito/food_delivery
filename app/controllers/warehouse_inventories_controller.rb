@@ -6,22 +6,21 @@ class WarehouseInventoriesController < ApplicationController
   # end
 
   def edit
+    @warehouse = Warehouse.find(params[:warehouse_id])
     @inventory = Inventory.find(params[:id])
   end
 
-  def update
-
-    inventory = Inventory.find(params[:id])
-    # require "pry"; binding.pry
-    inventory.update(inventory_params)
-    # require "pry"; binding.pry
-    unit_price = inventory.product.unit_price
-    total_value = unit_price * inventory.quantity
-    # require "pry"; binding.pry
-    inventory.update(unit_price: unit_price, total_value: total_value)
-
-    # redirect_to inventory_path(@inventory)
-    redirect_to inventories_path
-  end
-
+  # def update
+  #   @warehouse = Warehouse.find(params[:warehouse_id])
+  #   inventory = Inventory.find(params[:id])
+  #   # require "pry"; binding.pry
+  #   inventory.update(inventory_params)
+  #   # redirect_to inventory_path(@inventory)
+  #   redirect_to warehouse_path(@warehouse.id)
+  # end
+  #
+  # private
+  # def warehouse_inventory_params
+  #   params.permit(:warehouse_id)
+  # end
 end

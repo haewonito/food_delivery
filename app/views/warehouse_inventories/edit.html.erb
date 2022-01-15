@@ -1,12 +1,6 @@
 <h3>Assign Inventory <%= @inventory.id %> to a Different Warehouse</h3>
 
 <%= form_with url: inventory_path(@inventory), method: :patch, local: true do |f| %>
-  <%= f.label :product_id, "Product ID:" %>
-  <%= f.number_field :product_id %><br><br>
-
-  <%= f.label :quantity, "Quantity:" %>
-  <%= f.number_field :quantity %><br><br>
-
   <%= f.label :warehouse_id, "Warehouse ID:" %>
   <%= f.number_field :warehouse_id %><br><br>
 
