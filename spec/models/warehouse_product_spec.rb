@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe WarehouseProduct, type: :model do
-  describe "validations" do
+  xdescribe "validations" do
     it { should validate_presence_of :quantity}
   end
 
