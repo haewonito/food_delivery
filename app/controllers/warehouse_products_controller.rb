@@ -12,12 +12,14 @@ class WarehouseProductsController < ApplicationController
   end
 
   def create
+
     warehouse_product = WarehouseProduct.create(warehouse_product_params)
     redirect_to warehouse_products_path
   end
 
   def edit
     @warehouse_product = WarehouseProduct.find(params[:id])
+
     # if params[:add]
     #   @warehouse_product.quantity +
     #

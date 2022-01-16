@@ -10,29 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_233152) do
+ActiveRecord::Schema.define(version: 2022_01_16_030410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "inventories", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
+    t.string "name"
     t.float "unit_price"
+    t.string "storage_requirement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity_available"
+  end
+
+  create_table "warehouse_products", force: :cascade do |t|
     t.integer "quantity"
-    t.float "total_value"
     t.bigint "product_id"
     t.bigint "warehouse_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_inventories_on_product_id"
-    t.index ["warehouse_id"], name: "index_inventories_on_warehouse_id"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.float "unit_price"
-    t.string "storage_requirement"  #rt_perishable, refrigerated, frozen, non-perishable
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_warehouse_products_on_product_id"
+    t.index ["warehouse_id"], name: "index_warehouse_products_on_warehouse_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -43,6 +42,6 @@ ActiveRecord::Schema.define(version: 2022_01_08_233152) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "inventories", "products"
-  add_foreign_key "inventories", "warehouses"
+  add_foreign_key "warehouse_products", "products"
+  add_foreign_key "warehouse_products", "warehouses"
 end

@@ -1,40 +1,39 @@
-<h2>Search for an inventory by its ID or product name to add to the warehouse:</h2>
+<h2>Search for an warehouse_product by its ID or product name to add to the warehouse:</h2>
+<%= link_to "Edit #{@warehouse.location_name} Warehouse", edit_warehouse_path(@warehouse.id) %><br>
+<%= link_to "Delete #{@warehouse.location_name} Warehouse", warehouse_path(@warehouse.id), method: :delete %>
 
 <section>
   <%= form_with url: warehouse_path(@warehouse.id), method: :get, local: true do |f| %>
-    <%= f.label :keyword, "Keyword for Searching Inventory:" %>
+  <br><br>
+    <%= f.label :keyword, "Search inventory by ID to add to #{@warehouse.location_name} Warehouse:" %>
     <%= f.text_field :keyword %>
     <%= f.submit "Submit Search" %><br>
   <% end %>
-  <% if @inventory_found %>
-    <%= link_to "Inventory #{@inventory_found.id}", inventory_path(@inventory_found.id) %>
-    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", warehouse_inventory_path(@warehouse.id, @inventory_found.id), method: :patch %>
+  <% if @warehouse_product_found %>
+    <%= link_to "WarehouseProduct #{@warehouse_product_found.id}", warehouse_product_path(@warehouse_product_found.id) %>
+    <%= button_to "Add Inventory to the #{@warehouse.location_name} Warehouse", warehouse_warehouse_products_path(@warehouse.id, @warehouse_product_found.id), method: :post %>
   <% end %>
 </section>
 
-<h2>Here are the list of inventories for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
+<h2>List of Products for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
-<% @inventories.each do |inventory| %>
-  <section class="inventory<%= inventory.id %>">
-    <p class="id">
-    Inventory ID: <%= inventory.id %><br>
-    </p>
+<% @warehouse_products.each do |warehouse_product| %>
+  <section class="warehouse_product<%= warehouse_product.id %>">
     <p class="product_id">
-    Product ID: <%= inventory.product_id %><br>
+    Product ID: <%= warehouse_product.product_id %><br>
     </p>
     <p class="product_name">
-    Product Name: <%= inventory.product.name %><br>
+    Product Name: <%= warehouse_product.product.name %><br>
     </p>
     <p class="unit_price">
-    Unit Price: $<%= inventory.unit_price %><br>
+    Unit Price: $<%= warehouse_product.unit_price %><br>
     </p>
     <p class="quantity">
-    Quantity: <%= inventory.quantity %><br>
+    Quantity: <%= warehouse_product.quantity %><br>
     </p>
     <p class="total_value">
-    Total Value: $<%= inventory.total_value %><br><br>
+    Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
-    <%= link_to "Remove from List", edit_warehouse_inventory_path(@warehouse.id, inventory.id) %>
-    <%= link_to "Delete", warehouse_inventory_path(inventory.id), method: :delete %>
+    <%= link_to "Delete", warehouse_warehouse_product_path(warehouse_product.id), method: :delete %>
   </section>
 <% end %>

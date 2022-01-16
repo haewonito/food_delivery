@@ -19,23 +19,23 @@ RSpec.describe "Inventories Index Page", type: :feature do
       @aurora_warehouse = Warehouse.create!(location_name: "Aurora", phone_number: "720-486-2958", address: "357 Lansing Ct, Aurora, CO 39573")
       @fort_collins_warehouse = Warehouse.create!(location_name: "Fort Collins", phone_number: "303-249-2059", address: "305 S College Ave., Fort Collins, CO 80525")
 
-      @inv1 = Inventory.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
-      @inv2 = Inventory.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @aurora_warehouse.id)
-      @inv3 = Inventory.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
-      @inv4 = Inventory.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @fort_collins_warehouse.id)
-      @inv5 = Inventory.create!(unit_price: 7.50, quantity: 8, total_value: 60.00, product_id: @tomatoes.id, warehouse_id: @fort_collins_warehouse.id)
-      @inv6 = Inventory.create!(unit_price: 7.50, quantity: 10, total_value: 75.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
-      @inv7 = Inventory.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @aurora_warehouse.id)
-      @inv8  = Inventory.create!(unit_price: 3.99, quantity: 40, total_value: 159.60, product_id: @milk.id, warehouse_id: @aurora_warehouse.id)
-      @inv9  = Inventory.create!(unit_price: 3.99, quantity: 5, total_value: 19.95, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
+      @inv1 = WarehouseProduct.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
+      @inv2 = WarehouseProduct.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @aurora_warehouse.id)
+      @inv3 = WarehouseProduct.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
+      @inv4 = WarehouseProduct.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @fort_collins_warehouse.id)
+      @inv5 = WarehouseProduct.create!(unit_price: 7.50, quantity: 8, total_value: 60.00, product_id: @tomatoes.id, warehouse_id: @fort_collins_warehouse.id)
+      @inv6 = WarehouseProduct.create!(unit_price: 7.50, quantity: 10, total_value: 75.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
+      @inv7 = WarehouseProduct.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @aurora_warehouse.id)
+      @inv8  = WarehouseProduct.create!(unit_price: 3.99, quantity: 40, total_value: 159.60, product_id: @milk.id, warehouse_id: @aurora_warehouse.id)
+      @inv9  = WarehouseProduct.create!(unit_price: 3.99, quantity: 5, total_value: 19.95, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
 
-      visit inventories_path
+      visit warehouse_products_path
     end
 
-    it "I see a list of inventory items with details" do
-      expect(page).to have_css(".inventory", count: 9)
+    it "I see a list of warehouse_product items with details" do
+      expect(page).to have_css(".warehouse_product", count: 9)
 
-      within(first('.inventory')) do
+      within(first('.warehouse_product')) do
         expect(page).to have_css('.id')
         expect(page).to have_css('.product_id')
         expect(page).to have_css('.product_name')
@@ -45,8 +45,8 @@ RSpec.describe "Inventories Index Page", type: :feature do
         expect(page).to have_css('.total_value')
       end
 
-      within(first('.inventory')) do
-        expect(page).to have_content("Inventory ID: #{@inv1.id}")
+      within(first('.warehouse_product')) do
+        expect(page).to have_content("WarehouseProduct ID: #{@inv1.id}")
         expect(page).to have_content("Product Name: #{@inv1.product.name}")
         expect(page).to have_content("Warehouse: #{@inv1.warehouse.location_name}")
         expect(page).to have_content("Unit Price: $#{@inv1.unit_price}")
@@ -55,19 +55,19 @@ RSpec.describe "Inventories Index Page", type: :feature do
       end
     end
 
-    it "for each inventory, I see a button to edit" do
-      within(first('.inventory')) do
+    it "for each warehouse_product, I see a button to edit" do
+      within(first('.warehouse_product')) do
         click_link "Edit"
-        expect(current_path).to eq(edit_inventory_path(@inv1.id))
+        expect(current_path).to eq(edit_warehouse_product_path(@inv1.id))
       end
     end
 
-    it "for each inventory, I see a button to delete and it deletes" do
-      within(first('.inventory')) do
+    it "for each warehouse_product, I see a button to delete and it deletes" do
+      within(first('.warehouse_product')) do
         click_link "Delete"
-        expect(current_path).to eq(inventories_path)
+        expect(current_path).to eq(warehouse_products_path)
       end
-      expect(page).to_not have_content("Inventory ID: #{@inv1.id}")
+      expect(page).to_not have_content("WarehouseProduct ID: #{@inv1.id}")
     end
   end
 end

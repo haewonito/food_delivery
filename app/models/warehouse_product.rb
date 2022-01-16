@@ -1,4 +1,4 @@
-class Inventory < ApplicationRecord
+class WarehouseProduct < ApplicationRecord
   belongs_to :product
   belongs_to :warehouse
 
@@ -8,14 +8,26 @@ class Inventory < ApplicationRecord
   #   if keyword.scan(/\D/).empty?  #true only if all digits or empty
   #     find(keyword.to_i)
   #   else
-  #     Inventory
+  #     WarehouseProduct
   #     .joins
   #     .where("name ILIKE ?", "%#{keyword}%")
   #   end
   # end
+
+  def unit_price
+    product.unit_price
+  end
+
+  def total_value
+    (product.unit_price * quantity).round(2)
+  end
+
+  def product_name
+    product.name
+  end
 end
 
 #instead of total_value put in manually, have a .total_value
 #method that can calculate unit_price * quantity?
 
-#also, wonder if I can create inventory without warehouse.
+#also, wonder if I can create warehouse_product without warehouse.

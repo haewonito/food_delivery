@@ -1,10 +1,13 @@
 <h1>Welcome to Warehouse Index Page!</h1>
 
+<h2><%= link_to "Create New Warehouse", new_warehouse_path %></h2>
+
 <% @warehouses.each do |warehouse| %>
   <section class="warehouse">
     <p class="location_name">
-    Location Name: <%= warehouse.location_name %><br>
+    <h2><%= warehouse.location_name %> Warehouse:<br></h2>
     </p>
+    <h3>Details: </h3>
     <p class="phone_number">
     Phone Number: <%= warehouse.phone_number %><br>
     </p>
@@ -12,8 +15,14 @@
     Address: <%= warehouse.address %><br>
     </p>
 
+    <p class="products">
+      <h3>Products: </h3>
+      <% warehouse.warehouse_products.each do |warehouse_product| %>
+        Product Name: <%= warehouse_product.product_name %>
+        Total Value: $<%= warehouse_product.total_value %><br>
+      <% end %>
+    </p>
+
     <%= link_to "Show Page", warehouse_path(warehouse.id) %>
-    <%= link_to "Edit", edit_warehouse_path(warehouse.id) %>
-    <%= link_to "Delete", warehouse_path(warehouse.id), method: :delete %>
   </section>
 <% end %>

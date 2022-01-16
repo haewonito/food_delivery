@@ -1,0 +1,8 @@
+<%= form_with model: model, url: url do |f|%>
+  <%= f.label :name, 'Quantity:' %>
+  <%= f.text_field :quantity %>
+  <%= f.submit 'Submit' %>
+  <%= f.label :quantity, 'Quantity:' %>
+  <%= f.text_field :quantity %>
+  <%= f.submit 'Submit' %>
+<% end %>
