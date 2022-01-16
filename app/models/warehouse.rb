@@ -1,5 +1,6 @@
 class Warehouse < ApplicationRecord
-  has_many :inventories
+  has_many :warehouse_products
+  has_many :products, through: :warehouse_products
 
   validates_presence_of :location_name
   validates_presence_of :phone_number
