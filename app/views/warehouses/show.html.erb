@@ -15,6 +15,15 @@
   <% end %>
 </section>
 
+<h3>Warehouse Details: </h3>
+
+<p class="phone_number">
+Phone Number: <%= @warehouse.phone_number %><br>
+</p>
+<p class="address">
+Address: <%= @warehouse.address %><br>
+</p>
+
 <h2>List of Products for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
 <% @warehouse_products.each do |warehouse_product| %>
