@@ -22,7 +22,7 @@
       <section id="info-<%=warehouse_product.id%>">
         Warehouse Location: <%= warehouse_product.warehouse.location_name  %><br>
         Quantity: <%= warehouse_product.quantity %><br>
-        Total Value: $<%= warehouse_product.total_value %><br>
+        Total Value: $<%= warehouse_product.total_value %><br><br>
       <% end %>
       </section>
     </li>
@@ -35,7 +35,7 @@
      <br><br>
        <%= f.label :quantity, "Quantity to be added:" %>
        <%= f.text_field :quantity %>
-       <%= f.submit "Add Product to Warehouse" %><br>
+       <%= f.submit "Add Product to #{wh.location_name} Warehouse" %><br>
      <% end %>
       </p>
     <% end %>
