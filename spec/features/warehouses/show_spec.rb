@@ -64,6 +64,13 @@ RSpec.describe "Warehouse Show Page", type: :feature do
     end
   end
 
+  xit "I see a button to edit" do
+    within(first('.warehouse')) do
+      click_link "Edit"
+      expect(current_path).to eq(edit_warehouse_path(@denver_warehouse.id))
+    end
+  end
+
   xit "for each warehouse_product, I see a button to remove from the list" do
 
     within(".warehouse_product#{@inv1.id}") do

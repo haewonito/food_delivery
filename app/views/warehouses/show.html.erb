@@ -19,11 +19,11 @@
 
 <% @warehouse_products.each do |warehouse_product| %>
   <section class="warehouse_product<%= warehouse_product.id %>">
+    <p class="product_name">
+    <h3><%= warehouse_product.product.name %></h3>
+    </p>
     <p class="product_id">
     Product ID: <%= warehouse_product.product_id %><br>
-    </p>
-    <p class="product_name">
-    Product Name: <%= warehouse_product.product.name %><br>
     </p>
     <p class="unit_price">
     Unit Price: $<%= warehouse_product.unit_price %><br>

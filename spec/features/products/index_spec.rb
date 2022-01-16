@@ -36,7 +36,6 @@ RSpec.describe "", type: :feature do
       expect(page).to have_content("Quantity: #{@inv10.quantity}")
       expect(page).to have_content("Total Value: $#{total_value}")
     end
-    save_and_open_page
   end
 
   xit "can add product to a warehouse" do
