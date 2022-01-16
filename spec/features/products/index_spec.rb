@@ -15,8 +15,8 @@ RSpec.describe "", type: :feature do
 
   it "can add product to a warehouse" do
     visit products_path
-    within("#info-#{@inv1.id}") do
-      click_button "Add Product #{@potatoes.name}"
+    within(first(".add_button")) do
+      click_button "Add #{@potatoes.name} to #{wh.location_name} Warehouse"
       expect(current_path).to eq("/warehouses/#{@denver_warehouse.id}/products/#{@potatoes.id}/edit")
     end
     expect(page).to have_content("")

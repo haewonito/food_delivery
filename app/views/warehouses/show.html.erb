@@ -11,7 +11,7 @@
   <% end %>
   <% if @warehouse_product_found %>
     <%= link_to "WarehouseProduct #{@warehouse_product_found.id}", warehouse_product_path(@warehouse_product_found.id) %>
-    <%= button_to "Add Inventory to the #{@warehouse.location_name} Warehouse", warehouse_warehouse_products_path(@warehouse.id, @warehouse_product_found.id), method: :post %>
+    <%= button_to "Add Inventory to the #{@warehouse.location_name} Warehouse", warehouse_products_path(@warehouse.id, @warehouse_product_found.id), method: :post %>
   <% end %>
 </section>
 
@@ -34,6 +34,6 @@
     <p class="total_value">
     Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
-    <%= link_to "Delete", warehouse_warehouse_product_path(warehouse_product.id), method: :delete %>
+    <%= link_to "Delete", warehouse_products_path(warehouse_product.id), method: :delete %>
   </section>
 <% end %>

@@ -25,9 +25,12 @@
         Total Value: $<%= warehouse_product.total_value %><br>
       <% end %>
     </section>
-
-
     </p>
+    <% Warehouse.all.each do |wh| %>
+      <p class="add_button">
+     <%= button_to "Add #{product.name} to #{wh.location_name} Warehouse", new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id) %>
 
+      </p>
+    <% end %>
   </section>
 <% end %>

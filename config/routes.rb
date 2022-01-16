@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # concern :warehouse_products_table do
   #   resources :warehouse_products
   # end
-
+  post "/warehouses/:warehouse_id/products/new", to: "warehouse_products#create"
   resources :warehouses do
     resources :products, controller: :warehouse_products
   end

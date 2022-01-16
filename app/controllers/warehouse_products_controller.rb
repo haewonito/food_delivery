@@ -8,11 +8,9 @@ class WarehouseProductsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-
     warehouse_product = WarehouseProduct.create(warehouse_product_params)
     redirect_to warehouse_products_path
   end
