@@ -12,6 +12,7 @@ class InventoriesController < ApplicationController
 
   def create
     inventory = Inventory.create(inventory_params)
+    require "pry"; binding.pry
     unit_price = inventory.product.unit_price
     total_value = unit_price * inventory.quantity
     @inventory = inventory.update(unit_price: unit_price, total_value: total_value)
@@ -25,17 +26,16 @@ class InventoriesController < ApplicationController
   end
 
   def update
-
+require "pry"; binding.pry
     inventory = Inventory.find(params[:id])
-    # require "pry"; binding.pry
     inventory.update(inventory_params)
-    # require "pry"; binding.pry
+require "pry"; binding.pry
+    # if inventory_params[:product_id] == ""
     unit_price = inventory.product.unit_price
     total_value = unit_price * inventory.quantity
-    # require "pry"; binding.pry
     inventory.update(unit_price: unit_price, total_value: total_value)
+    # end
 
-    # redirect_to inventory_path(@inventory)
     redirect_to inventories_path
   end
 
