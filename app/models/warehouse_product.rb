@@ -2,7 +2,7 @@ class WarehouseProduct < ApplicationRecord
   belongs_to :product
   belongs_to :warehouse
 
-  validates_presence_of :quantity
+  # validates_presence_of :quantity
   #
   # def self.search(keyword)
   #   if keyword.scan(/\D/).empty?  #true only if all digits or empty
@@ -19,7 +19,9 @@ class WarehouseProduct < ApplicationRecord
   end
 
   def total_value
-    (product.unit_price * quantity).round(2)
+    if product.unit_price != nil and quantity != nil
+      (product.unit_price * quantity).round(2)
+    end
   end
 
   def product_name

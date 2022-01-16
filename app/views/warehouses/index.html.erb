@@ -1,4 +1,5 @@
 <h1>Welcome to Warehouse Index Page!</h1>
+*Go to individual warehouse's show page to update its detail, including inventory
 
 <h2><%= link_to "Create New Warehouse", new_warehouse_path %></h2>
 
@@ -17,10 +18,14 @@
 
     <p class="products">
       <h3>Products: </h3>
+      <ul>
       <% warehouse.warehouse_products.each do |warehouse_product| %>
-        Product Name: <%= warehouse_product.product_name %>
-        Total Value: $<%= warehouse_product.total_value %><br>
+        <h5>Product Name: <%= warehouse_product.product_name %></h5>
+        <li>Quantity: <%= warehouse_product.quantity %></li>
+        <li>Unit Price: $<%= warehouse_product.product.unit_price %></li>
+        <li>Total Value: $<%= warehouse_product.total_value %></li>
       <% end %>
+      </ul>
     </p>
 
     <%= link_to "Show Page", warehouse_path(warehouse.id) %>
