@@ -250,8 +250,18 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
+          null,
+          1,
+          null,
           null,
           null
         ]
@@ -282,22 +292,15 @@
           null
         ]
       },
-      "/Users/haewonjeon/intership_take_home/food_delivery/spec/models/warehouse_product_spec.rb": {
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/warehouse.rb": {
         "lines": [
           1,
+          1,
+          1,
           null,
           1,
           1,
-          2,
-          null,
-          null,
           1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          null,
           null
         ]
       },
@@ -319,6 +322,18 @@
           null,
           null,
           null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
           null,
           null,
           null,
@@ -326,40 +341,22 @@
           null
         ]
       },
-      "/Users/haewonjeon/intership_take_home/food_delivery/spec/models/warehouse_spec.rb": {
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/controllers/products_controller.rb": {
         "lines": [
           1,
-          null,
           1,
-          1,
-          2,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
           1,
           null,
           null
         ]
       },
-      "/Users/haewonjeon/intership_take_home/food_delivery/app/models/warehouse.rb": {
+      "/Users/haewonjeon/intership_take_home/food_delivery/app/controllers/application_controller.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1642293916
+    "timestamp": 1642308333
   }
 }

@@ -13,5 +13,11 @@ RSpec.describe Product, type: :model do
   end
 
   describe "instance methods" do
+    xit "unit_price" do
+
+    end
+
+    xit "total_value" do
+    end
   end
 end

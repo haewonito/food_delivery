@@ -1,0 +1,33 @@
+<h1>Available Products:</h1>
+
+
+<% @products.each do |product| %>
+  <section class="product<%= product.id %>">
+
+    <p class="name">
+    <h3>Product Name: <%= product.name %><br></h3>
+    </p>
+    <p class="quantity_available">
+
+    Quantity Available: <%= product.quantity_available %><br>
+    </p>
+    <p class="unit_price">
+    unit_price: <%= product.unit_price %><br>
+    </p>
+    <p class="storage_requirement">
+    Storage Requirement: <%= product.storage_requirement %><br>
+    </p>
+    <p class="warehouse">
+      <h4>Warehouses that already have the product:</h4>
+      <% product.warehouse_products.each do |warehouse_product| %>
+      <section id="info-<%=warehouse_product.id%>">
+        Warehouse Location: <%= warehouse_product.warehouse.location_name  %>
+        Total Value: $<%= warehouse_product.total_value %><br>
+      <% end %>
+    </section>
+
+
+    </p>
+
+  </section>
+<% end %>

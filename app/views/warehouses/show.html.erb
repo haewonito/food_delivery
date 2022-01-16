@@ -1,24 +1,24 @@
 <h2>Search for an warehouse_product by its ID or product name to add to the warehouse:</h2>
+<%= link_to "Edit #{@warehouse.location_name} Warehouse", edit_warehouse_path(@warehouse.id) %><br>
+<%= link_to "Delete #{@warehouse.location_name} Warehouse", warehouse_path(@warehouse.id), method: :delete %>
 
 <section>
   <%= form_with url: warehouse_path(@warehouse.id), method: :get, local: true do |f| %>
-    <%= f.label :keyword, "Keyword for Searching WarehouseProduct:" %>
+  <br><br>
+    <%= f.label :keyword, "Search inventory by ID to add to #{@warehouse.location_name} Warehouse:" %>
     <%= f.text_field :keyword %>
     <%= f.submit "Submit Search" %><br>
   <% end %>
   <% if @warehouse_product_found %>
     <%= link_to "WarehouseProduct #{@warehouse_product_found.id}", warehouse_product_path(@warehouse_product_found.id) %>
-    <%= button_to "Add to the #{@warehouse.location_name} Warehouse", warehouse_warehouse_product_path(@warehouse.id, @warehouse_product_found.id), method: :patch %>
+    <%= button_to "Add Inventory to the #{@warehouse.location_name} Warehouse", warehouse_warehouse_products_path(@warehouse.id, @warehouse_product_found.id), method: :post %>
   <% end %>
 </section>
 
-<h2>Here are the list of inventories for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
+<h2>List of Products for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
 <% @warehouse_products.each do |warehouse_product| %>
   <section class="warehouse_product<%= warehouse_product.id %>">
-    <p class="id">
-    WarehouseProduct ID: <%= warehouse_product.id %><br>
-    </p>
     <p class="product_id">
     Product ID: <%= warehouse_product.product_id %><br>
     </p>
@@ -34,7 +34,6 @@
     <p class="total_value">
     Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
-    <%= link_to "Remove from List", edit_warehouse_warehouse_product_path(@warehouse.id, warehouse_product.id) %>
     <%= link_to "Delete", warehouse_warehouse_product_path(warehouse_product.id), method: :delete %>
   </section>
 <% end %>

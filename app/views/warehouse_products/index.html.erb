@@ -1,9 +1,11 @@
-<h1>WarehouseProduct Index Page:</h1>
+<h1>Current Inventories:</h1>
+
+<%= link_to "Create New Inventory", new_warehouse_product_path %>
 
 <% @warehouse_products.each do |warehouse_product| %>
   <section class="warehouse_product">
     <p class="id">
-    WarehouseProduct ID: <%= warehouse_product.id %><br>
+    Inventory ID: <%= warehouse_product.id %><br>
     </p>
     <p class="product_id">
     Product ID: <%= warehouse_product.product_id %><br>
@@ -23,8 +25,10 @@
     <p class="total_value">
     Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
-
-    <%= link_to "Edit", edit_warehouse_product_path(warehouse_product.id) %>
-    <%= link_to "Delete", warehouse_product_path(warehouse_product.id), method: :delete %>
+    <p class="edit_delete_links">
+      <%= link_to "Edit", edit_warehouse_product_path(warehouse_product.id) %>
+      <%= link_to "Delete", warehouse_product_path(warehouse_product.id), method: :delete %>
+  <%#    <%= link_to "Switch to a Different Warehouse", warehouse_product_path(warehouse_product.id), method: :patch %>
+    </p>
   </section>
 <% end %>
