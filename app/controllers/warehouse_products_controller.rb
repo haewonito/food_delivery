@@ -8,30 +8,26 @@ class WarehouseProductsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
+    require "pry"; binding.pry
     warehouse_product = WarehouseProduct.create(warehouse_product_params)
-    unit_price = warehouse_product.product.unit_price
-    total_value = unit_price * warehouse_product.quantity
-    @warehouse_product = warehouse_product.update(unit_price: unit_price, total_value: total_value)
-
     redirect_to warehouse_products_path
-    #there's probably more elegant way to do this.  ask Cydnee
   end
 
   def edit
     @warehouse_product = WarehouseProduct.find(params[:id])
+    require "pry"; binding.pry
+    # if params[:add]
+    #   @warehouse_product.quantity +
+    #
   end
 
   def update
     warehouse_product = WarehouseProduct.find(params[:id])
     warehouse_product.update(warehouse_product_params)
-    # if warehouse_product_params[:product_id] == ""
-    unit_price = warehouse_product.product.unit_price
-    total_value = unit_price * warehouse_product.quantity
-    warehouse_product.update(unit_price: unit_price, total_value: total_value)
-    # end
 
     redirect_to warehouse_products_path
   end

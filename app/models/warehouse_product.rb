@@ -13,6 +13,18 @@ class WarehouseProduct < ApplicationRecord
   #     .where("name ILIKE ?", "%#{keyword}%")
   #   end
   # end
+
+  def unit_price
+    product.unit_price
+  end
+
+  def total_value
+    (product.unit_price * quantity).round(2)
+  end
+
+  def product_name
+    product.name
+  end
 end
 
 #instead of total_value put in manually, have a .total_value
