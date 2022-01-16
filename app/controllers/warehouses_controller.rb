@@ -5,11 +5,11 @@ class WarehousesController < ApplicationController
 
   def show
     @warehouse = Warehouse.find(params[:id])
-    @inventories = @warehouse.inventories
-#keyword at the moment is assumed to be an integer for inventory.id
+    @warehouse_products = @warehouse.warehouse_products
+#keyword at the moment is assumed to be an integer for warehouse_product.id
     if params[:keyword]
-      # @inventories_found = Inventory.search(params[:keyword])
-      @inventory_found = Inventory.find(params[:keyword])
+      # @warehouse_products_found = WarehouseProduct.search(params[:keyword])
+      @warehouse_product_found = WarehouseProduct.find(params[:keyword])
     end
   end
 

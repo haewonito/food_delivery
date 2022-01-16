@@ -9,10 +9,10 @@ RSpec.describe 'Warehouse Edit Page' do
 
     @denver_warehouse = Warehouse.create!(location_name: "Denver", phone_number: "395-394-3958", address: "4051 Honker St., Denver, CO 80202")
 
-    @inv1 = Inventory.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
-    @inv2 = Inventory.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
-    @inv3 = Inventory.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
-    @inv7 = Inventory.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
+    @inv1 = WarehouseProduct.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
+    @inv2 = WarehouseProduct.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
+    @inv3 = WarehouseProduct.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
+    @inv7 = WarehouseProduct.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
 
     visit edit_warehouse_path(@denver_warehouse)
   end

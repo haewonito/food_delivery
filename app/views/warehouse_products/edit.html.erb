@@ -1,0 +1,11 @@
+<h3>Assign WarehouseProduct <%= @warehouse_product.id %> to a Different Warehouse</h3>
+
+<%= form_with url: warehouse_product_path(@warehouse_product), method: :patch, local: true do |f| %>
+  <%= f.label :warehouse_id, "Warehouse ID:" %>
+  <%= f.number_field :warehouse_id %><br><br>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>If you want to delete the warehouse_product completely, go to its show page:</h3>
+<%= link_to "WarehouseProduct #{@warehouse_product.id} Show Page", warehouse_product_path(@warehouse_product.id) %>

@@ -18,6 +18,6 @@ RSpec.describe 'Warehouse Create Page' do
     expect(warehouse.location_name).to eq("Colorado Springs")
     expect(warehouse.phone_number).to eq("111-111-1111")
     expect(warehouse.address).to eq("3434 Colorado Ave, Colorado Springs, CO 80282")
-    # expect(page).to have_content("New Inventory Has Been Created!")
+    # expect(page).to have_content("New WarehouseProduct Has Been Created!")
   end
 end

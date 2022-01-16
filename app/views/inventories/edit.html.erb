@@ -1,6 +1,6 @@
-<h1>Update Inventory Information</h1>
+<h1>Update WarehouseProduct Information</h1>
 
-<%= form_with url: inventory_path(@inventory), method: :patch, local: true do |f| %>
+<%= form_with url: warehouse_product_path(@warehouse_product), method: :patch, local: true do |f| %>
 
   <%= f.label :quantity, "Quantity:" %>
   <%= f.number_field :quantity %><br><br>

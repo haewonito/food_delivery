@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  has_many :inventories
+  has_many :warehouse_products
+  has_many :warehouses, through: :warehouse_products
 
   validates_presence_of :name
   validates_presence_of :unit_price

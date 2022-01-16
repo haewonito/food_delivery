@@ -1,30 +1,30 @@
-<h1>Inventory Index Page:</h1>
+<h1>WarehouseProduct Index Page:</h1>
 
-<% @inventories.each do |inventory| %>
-  <section class="inventory">
+<% @warehouse_products.each do |warehouse_product| %>
+  <section class="warehouse_product">
     <p class="id">
-    Inventory ID: <%= inventory.id %><br>
+    WarehouseProduct ID: <%= warehouse_product.id %><br>
     </p>
     <p class="product_id">
-    Product ID: <%= inventory.product_id %><br>
+    Product ID: <%= warehouse_product.product_id %><br>
     </p>
     <p class="product_name">
-    Product Name: <%= inventory.product.name %><br>
+    Product Name: <%= warehouse_product.product.name %><br>
     </p>
     <p class="warehouse">
-    Warehouse: <%= inventory.warehouse.location_name %><br>
+    Warehouse: <%= warehouse_product.warehouse.location_name %><br>
     </p>
     <p class="unit_price">
-    Unit Price: $<%= inventory.unit_price %><br>
+    Unit Price: $<%= warehouse_product.unit_price %><br>
     </p>
     <p class="quantity">
-    Quantity: <%= inventory.quantity %><br>
+    Quantity: <%= warehouse_product.quantity %><br>
     </p>
     <p class="total_value">
-    Total Value: $<%= inventory.total_value %><br><br>
+    Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
 
-    <%= link_to "Edit", edit_inventory_path(inventory.id) %>
-    <%= link_to "Delete", inventory_path(inventory.id), method: :delete %>
+    <%= link_to "Edit", edit_warehouse_product_path(warehouse_product.id) %>
+    <%= link_to "Delete", warehouse_product_path(warehouse_product.id), method: :delete %>
   </section>
 <% end %>

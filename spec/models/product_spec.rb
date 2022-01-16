@@ -8,7 +8,8 @@ RSpec.describe Product, type: :model do
   end
 
   describe "relationships" do
-    it {should have_many :inventories}
+    it { should have_many :warehouse_products}
+    it { should have_many(:warehouses).through(:warehouse_products) }
   end
 
   describe "instance methods" do

@@ -17,15 +17,15 @@ RSpec.describe "Warehouse Index Page", type: :feature do
     @aurora_warehouse = Warehouse.create!(location_name: "Aurora", phone_number: "720-486-2958", address: "357 Lansing Ct, Aurora, CO 39573")
     @fort_collins_warehouse = Warehouse.create!(location_name: "Fort Collins", phone_number: "303-249-2059", address: "305 S College Ave., Fort Collins, CO 80525")
 
-    @inv1 = Inventory.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
-    @inv2 = Inventory.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @aurora_warehouse.id)
-    @inv3 = Inventory.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
-    @inv4 = Inventory.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @fort_collins_warehouse.id)
-    @inv5 = Inventory.create!(unit_price: 7.50, quantity: 8, total_value: 60.00, product_id: @tomatoes.id, warehouse_id: @fort_collins_warehouse.id)
-    @inv6 = Inventory.create!(unit_price: 7.50, quantity: 10, total_value: 75.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
-    @inv7 = Inventory.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @aurora_warehouse.id)
-    @inv8  = Inventory.create!(unit_price: 3.99, quantity: 40, total_value: 159.60, product_id: @milk.id, warehouse_id: @aurora_warehouse.id)
-    @inv9  = Inventory.create!(unit_price: 3.99, quantity: 5, total_value: 19.95, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
+    @inv1 = WarehouseProduct.create!(unit_price: 15.65, quantity: 2, total_value: 31.3, product_id: @potatoes.id, warehouse_id: @denver_warehouse.id)
+    @inv2 = WarehouseProduct.create!(unit_price: 15.65, quantity: 10, total_value: 156.50, product_id: @potatoes.id, warehouse_id: @aurora_warehouse.id)
+    @inv3 = WarehouseProduct.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @denver_warehouse.id)
+    @inv4 = WarehouseProduct.create!(unit_price: 12.50, quantity: 10, total_value: 120.50, product_id: @onions.id, warehouse_id: @fort_collins_warehouse.id)
+    @inv5 = WarehouseProduct.create!(unit_price: 7.50, quantity: 8, total_value: 60.00, product_id: @tomatoes.id, warehouse_id: @fort_collins_warehouse.id)
+    @inv6 = WarehouseProduct.create!(unit_price: 7.50, quantity: 10, total_value: 75.00, product_id: @tomatoes.id, warehouse_id: @denver_warehouse.id)
+    @inv7 = WarehouseProduct.create!(unit_price: 7.50, quantity: 2, total_value: 15.00, product_id: @tomatoes.id, warehouse_id: @aurora_warehouse.id)
+    @inv8  = WarehouseProduct.create!(unit_price: 3.99, quantity: 40, total_value: 159.60, product_id: @milk.id, warehouse_id: @aurora_warehouse.id)
+    @inv9  = WarehouseProduct.create!(unit_price: 3.99, quantity: 5, total_value: 19.95, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
 
     visit warehouses_path
   end
@@ -52,15 +52,15 @@ RSpec.describe "Warehouse Index Page", type: :feature do
       expect(current_path).to eq(warehouse_path(@denver_warehouse.id))
     end
 
-    inventory = @denver_warehouse.inventories.first
+    warehouse_product = @denver_warehouse.warehouse_products.first
 
-    within(".inventory#{inventory.id}") do
-      expect(page).to have_content("Inventory ID: #{inventory.id}")
-      expect(page).to have_content("Product ID: #{inventory.product.id}")
-      expect(page).to have_content("Product Name: #{inventory.product.name}")
-      expect(page).to have_content("Unit Price: $#{inventory.unit_price}")
-      expect(page).to have_content("Quantity: #{inventory.quantity}")
-      expect(page).to have_content("Total Value: $#{inventory.total_value}")
+    within(".warehouse_product#{warehouse_product.id}") do
+      expect(page).to have_content("WarehouseProduct ID: #{warehouse_product.id}")
+      expect(page).to have_content("Product ID: #{warehouse_product.product.id}")
+      expect(page).to have_content("Product Name: #{warehouse_product.product.name}")
+      expect(page).to have_content("Unit Price: $#{warehouse_product.unit_price}")
+      expect(page).to have_content("Quantity: #{warehouse_product.quantity}")
+      expect(page).to have_content("Total Value: $#{warehouse_product.total_value}")
     end
   end
 
