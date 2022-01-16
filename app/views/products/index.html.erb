@@ -30,6 +30,12 @@
       <p class="add_button">
      <%= button_to "Add #{product.name} to #{wh.location_name} Warehouse", new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id) %>
 
+     <%= form_with url: new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id), method: :post do |f| %>
+     <br><br>
+       <%= f.label :quantity, "Quantity to be added:" %>
+       <%= f.text_field :quantity %>
+       <%= f.submit "Add Product to Warehouse" %><br>
+     <% end %>
       </p>
     <% end %>
   </section>
