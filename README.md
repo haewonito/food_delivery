@@ -48,7 +48,7 @@ The [task](https://docs.google.com/document/d/1z9LZ_kZBUbg-O2MhZVVSqTmvDko5IJWHt
 # Test Suite
 - Run with `bundle exec rspec`
 - All tests should be passing
-- 97% test coverage
+- 94% test coverage as of now - GET IT UP!!!
 
 # Database Schema
 
