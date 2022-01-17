@@ -51,6 +51,7 @@ RSpec.describe "Inventories Index Page", type: :feature do
       end
     end
 
+
     xit "for each inventory, I see a button to edit" do
       within(first('.warehouse_product')) do
         click_link "Edit"

@@ -12,13 +12,11 @@ class WarehouseProductsController < ApplicationController
   end
 
   def create
-
     @warehouse_product = WarehouseProduct.create(warehouse_product_params)
     @products = Product.all
     @warehouse_products = WarehouseProduct.all
-
     # redirect_to :back
-    redirect_to warehouse_products_path
+    redirect_to products_path
   end
 
   def edit

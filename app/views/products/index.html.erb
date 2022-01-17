@@ -29,9 +29,9 @@
     </ul>
     <% Warehouse.all.each do |wh| %>
       <p class="add_button">
-     <%= button_to "Add #{product.name} to #{wh.location_name} Warehouse", new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id) %>
+<%#     <%= button_to "Add #{product.name} to #{wh.location_name} Warehouse", new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id) %>
 
-     <%= form_with url: new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id), method: :post do |f| %>
+     <%= form_with url: new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id), method: :post, local: true do |f| %>
      <br><br>
        <%= f.label :quantity, "Quantity to be added:" %>
        <%= f.text_field :quantity %>
