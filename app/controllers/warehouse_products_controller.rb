@@ -1,7 +1,6 @@
 class WarehouseProductsController < ApplicationController
   def index
     @warehouse_products = WarehouseProduct.all
-    @products
   end
 
   def show
@@ -12,19 +11,12 @@ class WarehouseProductsController < ApplicationController
   end
 
   def create
-    @warehouse_product = WarehouseProduct.create(warehouse_product_params)
-    @products = Product.all
-    @warehouse_products = WarehouseProduct.all
-    # redirect_to :back
+    Services::WarehouseProductsService.new(warehouse_product_params).call
     redirect_to products_path
   end
 
   def edit
     @warehouse_product = WarehouseProduct.find(params[:id])
-
-    # if params[:add]
-    #   @warehouse_product.quantity +
-    #
   end
 
   def update
