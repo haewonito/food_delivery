@@ -1,18 +1,21 @@
-class WarehouseProductsController < ApplicationController
+class InventoriesController < ApplicationController
   def index
     @warehouse_products = WarehouseProduct.all
   end
 
-  def show
-    @warehouse_product = WarehouseProduct.find(params[:id])
-  end
-
   def new
+    # @warehouse = Warehouse.find(params)
   end
 
   def create
-    Services::WarehouseProductsService.new(warehouse_product_params).call
-    redirect_to products_path
+    @warehouse_product = WarehouseProduct.create(warehouse_product_params)
+    # if @warehouse_product.save
+    redirect_to "/warehouse_products"
+    #   flash[:notice] = "New Inventory Is Successfully Created!"
+    # else
+    #   redirect_to "/warehouse_products/new"
+    #   flash[:alert] = "Error: Try Again"
+    # end
   end
 
   def edit
@@ -23,16 +26,15 @@ class WarehouseProductsController < ApplicationController
     warehouse_product = WarehouseProduct.find(params[:id])
     warehouse_product.update(warehouse_product_params)
 
-    redirect_to warehouse_products_path
+    redirect_to "/warehouse_products"
   end
 
   def destroy
     WarehouseProduct.find(params[:id]).destroy
-    redirect_to warehouse_products_path
+    redirect_to "/warehouse_products"
   end
 
   private
-
   def warehouse_product_params
     params.permit(:product_id, :quantity, :warehouse_id)
   end

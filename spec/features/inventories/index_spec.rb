@@ -25,24 +25,11 @@ RSpec.describe "Inventories Index Page", type: :feature do
     @inv9  = WarehouseProduct.create!(quantity: 5, product_id: @milk.id, warehouse_id: @fort_collins_warehouse.id)
     @inv10 = WarehouseProduct.create!(quantity: 10, product_id: @shrimp.id, warehouse_id: @denver_warehouse.id)
 
-    visit warehouse_products_path
+    visit "/warehouse_products"
     end
 
     it "I see a list of inventory items with details" do
-      expect(page).to have_css(".warehouse_product", count: 9)
-
       within(first('.warehouse_product')) do
-        expect(page).to have_css('.id')
-        expect(page).to have_css('.product_id')
-        expect(page).to have_css('.product_name')
-        expect(page).to have_css('.warehouse')
-        expect(page).to have_css('.unit_price')
-        expect(page).to have_css('.quantity')
-        expect(page).to have_css('.total_value')
-      end
-
-      within(first('.warehouse_product')) do
-        expect(page).to have_content("WarehouseProduct ID: #{@inv1.id}")
         expect(page).to have_content("Product Name: #{@inv1.product.name}")
         expect(page).to have_content("Warehouse: #{@inv1.warehouse.location_name}")
         expect(page).to have_content("Unit Price: $#{@inv1.unit_price}")
@@ -51,20 +38,32 @@ RSpec.describe "Inventories Index Page", type: :feature do
       end
     end
 
+    it "I see a link to create a new inventory" do
+      click_link "Create New Inventory"
 
-    xit "for each inventory, I see a button to edit" do
+      fill_in :product_id, with: "2"
+      fill_in :quantity, with: "99"
+      fill_in :warehouse_id, with: "2"
+      click_button "Save"
+    end
+
+    it "for each inventory, I see a button to edit" do
       within(first('.warehouse_product')) do
         click_link "Edit"
-        expect(current_path).to eq(edit_warehouse_product_path(@inv1.id))
+        expect(current_path).to eq("/warehouse_products/#{@inv1.id}/edit")
       end
     end
 
-    xit "for each inventory, I see a button to delete and it deletes" do
+    it "for each inventory, I see a button to delete and it deletes" do
+
       within(first('.warehouse_product')) do
         click_link "Delete"
-        expect(current_path).to eq(warehouse_products_path)
+        expect(current_path).to eq("/warehouse_products")
       end
-      expect(page).to_not have_content("WarehouseProduct ID: #{@inv1.id}")
+
+      within(first('.warehouse_product')) do
+        expect(page).to_not have_content("Warehouse: #{@inv1.warehouse.location_name}")
+      end
     end
   end
 end
