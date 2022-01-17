@@ -23,12 +23,31 @@ module Services
       warehouse_product_params[:quantity].to_i
     end
 
-    def create_or_update_warehouse_product
-      if warehouse_product = WarehouseProduct.find_by(product_id: product_id, warehouse_id: warehouse_id)
-        new_quantity = warehouse_product.quantity + quantity
-        warehouse_product.update(quantity: new_quantity)
+    def product_available?
+      product = Product.find(product_id)
+      if product.quantity_available > quantity
+        true
       else
-        WarehouseProduct.create(warehouse_product_params)
+        false
+      end
+    end
+
+    def new_quantity_available
+      product = Product.find(product_id)
+      product.quantity_available - quantity
+    end
+
+    def create_or_update_warehouse_product
+      if product_available?
+        if warehouse_product = WarehouseProduct.find_by(product_id: product_id, warehouse_id: warehouse_id)
+          new_quantity = warehouse_product.quantity + quantity
+          warehouse_product.update(quantity: new_quantity)
+          warehouse_product.product.update(quantity_available: new_quantity_available)
+        else
+          WarehouseProduct.create(warehouse_product_params)
+        end
+      # else
+      #   flash[:alert] = "We do not have enough product"
       end
     end
   end

@@ -20,9 +20,7 @@ class WarehouseProductsController < ApplicationController
   end
 
   def update
-    warehouse_product = WarehouseProduct.find(params[:id])
-    warehouse_product.update(warehouse_product_params)
-
+    Services::WarehouseProductsService.new(warehouse_product_params).call
     redirect_to warehouse_products_path
   end
 
