@@ -1,0 +1,18 @@
+<h1>Update Product Information</h1>
+
+<%= form_with url: product_path(@product), method: :patch, local: true do |f| %>
+
+  <%= f.label :name, "Product Name:" %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :unit_price, "Unit Price:" %>
+  <%= f.text_field :unit_price %><br><br>
+
+  <%= f.label :quantity_available, "Available Quantity:" %>
+  <%= f.text_field :quantity_available %><br><br>
+
+  <%= f.label :storage_requirement, "Storage Requirement:" %>
+  <%= f.text_field :storage_requirement %><br><br>
+
+  <%= f.submit %>
+<% end %>

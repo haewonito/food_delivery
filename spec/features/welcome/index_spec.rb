@@ -5,23 +5,18 @@ RSpec.describe "welcome page", type: :feature do
     visit "/"
   end
 
-  it "I see a link to see the list of inventories" do
+  it "I see a link to inventories index page" do
     click_on "See All Inventories"
-    expect(current_path).to eq(warehouse_products_path)
+    expect(current_path).to eq("/warehouse_products")
   end
 
-  it "I see a link to create a new warehouse_product" do
-    click_on "Create New WarehouseProduct"
-    expect(current_path).to eq(new_warehouse_product_path)
+  it "I see a link to products index page" do
+    click_on "See All Products"
+    expect(current_path).to eq(products_path)
   end
 
-  it " a link to see a list of warehouses" do
+  it "I see a link to warehouses index page" do
     click_on "See All Warehouses"
     expect(current_path).to eq(warehouses_path)
-  end
-
-  it "has a link to create a new warehouse " do
-    click_on "Create New Warehouse"
-    expect(current_path).to eq(new_warehouse_path)
   end
 end

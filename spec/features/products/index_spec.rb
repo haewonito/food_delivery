@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "", type: :feature do
+RSpec.describe "Products Index Page", type: :feature do
   before(:each) do
     @potatoes = Product.create!(name: "Potatoes", quantity_available: 100, unit_price: 15.65, storage_requirement: "rt_perishable")
     @tomatoes = Product.create!(name: "Tomatoes", quantity_available: 100, unit_price: 7.50, storage_requirement: "refrigerated")
