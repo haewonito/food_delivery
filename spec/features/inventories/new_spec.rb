@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Inventories New Page' do
   describe "as a visitor" do
     before(:each) do
-
-      @potatoes = Product.create!(name: "Potatoes", unit_price: 15.65, storage_requirement: "rt_perishable")
+      @potatoes = Product.create!(name: "Potatoes", quantity_available: 100, unit_price: 15.65, storage_requirement: "rt_perishable")
       @denver_warehouse = Warehouse.create!(location_name: "Denver", phone_number: "395-394-3958", address: "4051 Honker St., Denver, CO 80202")
 
       visit "/warehouse_products/new"

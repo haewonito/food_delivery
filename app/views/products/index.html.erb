@@ -1,3 +1,6 @@
+<h2><%= link_to "Create New Product", new_product_path %></h2>
+
+
 <h1>Available Products:</h1>
 
 
@@ -24,6 +27,9 @@
         Quantity: <%= warehouse_product.quantity %><br>
         Total Value: $<%= warehouse_product.total_value %><br><br>
       <% end %>
+
+      <%= link_to "Edit #{product.name}", edit_product_path(product.id) %><br>
+
       </section>
     </li>
     </ul>

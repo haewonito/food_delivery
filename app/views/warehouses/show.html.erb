@@ -1,6 +1,5 @@
 <h2>Search for an warehouse_product by its ID or product name to add to the warehouse:</h2>
 <%= link_to "Edit #{@warehouse.location_name} Warehouse", edit_warehouse_path(@warehouse.id) %><br>
-<%= link_to "Delete #{@warehouse.location_name} Warehouse", warehouse_path(@warehouse.id), method: :delete %>
 
 <section>
   <%= form_with url: warehouse_path(@warehouse.id), method: :get, local: true do |f| %>

@@ -23,7 +23,6 @@ class WarehousesController < ApplicationController
       flash[:alert] = "Warehouse is not created: #{warehouse.errors.messages}"
       redirect_to new_warehouse_path
     end
-
   end
 
   def edit
