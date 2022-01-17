@@ -10,8 +10,10 @@
   </head>
 
   <body>
-    <%= link_to "Products", products_path %>
-    <%= link_to "Warehouses", warehouses_path %>
+    <%= link_to "See All Products", products_path %>
+    <%= link_to "See All Warehouses", warehouses_path %>
+    <%= link_to "See All Inventories", "/warehouse_products" %>
+
 
     <% if flash.any? %>
       <% flash.each do |type, msg| %>
@@ -20,7 +22,7 @@
         </div>
       <% end %>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>

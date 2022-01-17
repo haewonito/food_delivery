@@ -11,8 +11,12 @@ class WarehouseProductsController < ApplicationController
   end
 
   def create
-    Services::WarehouseProductsService.new(warehouse_product_params).call
-    redirect_to products_path
+    if Services::WarehouseProductsService.new(warehouse_product_params).call != false
+      redirect_to products_path
+    else
+      flash[:alert] = "We don't have enough products for this request"
+      redirect_to products_path
+    end
   end
 
   def edit
@@ -20,8 +24,12 @@ class WarehouseProductsController < ApplicationController
   end
 
   def update
-    Services::WarehouseProductsService.new(warehouse_product_params).call
-    redirect_to warehouse_products_path
+    if Services::WarehouseProductsService.new(warehouse_product_params).call != false
+      redirect_to warehouse_products_path
+    else
+      flash[:alert] = "We don't have enough products for this request"
+      redirect_to warehouse_products_path
+    end
   end
 
   def destroy

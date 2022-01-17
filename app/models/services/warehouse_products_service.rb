@@ -46,8 +46,8 @@ module Services
         else
           WarehouseProduct.create(warehouse_product_params)
         end
-      # else
-      #   flash[:alert] = "We do not have enough product"
+      else
+        false
       end
     end
   end
