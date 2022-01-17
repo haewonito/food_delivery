@@ -6,9 +6,7 @@ class WarehousesController < ApplicationController
   def show
     @warehouse = Warehouse.find(params[:id])
     @warehouse_products = @warehouse.warehouse_products
-#keyword at the moment is assumed to be an integer for warehouse_product.id
     if params[:keyword]
-      # @warehouse_products_found = WarehouseProduct.search(params[:keyword])
       @warehouse_product_found = WarehouseProduct.find(params[:keyword])
     end
   end
@@ -18,7 +16,14 @@ class WarehousesController < ApplicationController
 
   def create
     warehouse = Warehouse.create(warehouse_params)
-    redirect_to warehouses_path
+    if warehouse.save
+      flash[:notice] = "New Warehouse is successfully created"
+      redirect_to warehouses_path
+    else
+      flash[:alert] = "Warehouse is not created: #{warehouse.errors.messages}"
+      redirect_to new_warehouse_path
+    end
+
   end
 
   def edit
