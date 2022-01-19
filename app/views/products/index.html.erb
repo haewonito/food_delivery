@@ -35,10 +35,10 @@
     </ul>
     <% Warehouse.all.each do |wh| %>
       <p class="add_button">
-     <%= form_with url: new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id), method: :post, local: true do |f| %>   
+     <%= form_with url: new_warehouse_product_path(warehouse_id: wh.id, product_id: product.id), method: :post, local: true do |f| %>
        <%= f.label :quantity, "Quantity to be added:" %>
        <%= f.text_field :quantity %>
-       <%= f.submit "Add Product to #{wh.location_name} Warehouse" %><br>
+       <%= f.submit "Add #{product.name} to #{wh.location_name} Warehouse" %><br>
      <% end %>
       </p>
     <% end %>

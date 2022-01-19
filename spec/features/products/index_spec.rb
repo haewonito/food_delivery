@@ -38,12 +38,5 @@ RSpec.describe "Products Index Page", type: :feature do
     end
   end
 
-  xit "can add product to a warehouse" do
-    within(first(".add_button")) do
-      fill_in :quantity, with: "555"
-      click_button "Add #{@potatoes.name} to #{wh.location_name} Warehouse"
-      expect(current_path).to eq("warehouse_products_path")
-    end
-    expect(page).to have_content("")
-  end
+
 end
