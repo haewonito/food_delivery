@@ -3,9 +3,6 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-    @product = Product.find(params[:id])
-  end
   def new
   end
 
@@ -27,6 +24,11 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     product.update(product_params)
+    redirect_to products_path
+  end
+
+  def destroy
+    Product.find(params[:id]).destroy
     redirect_to products_path
   end
 
