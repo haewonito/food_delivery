@@ -9,7 +9,4 @@ RSpec.describe WarehouseProduct, type: :model do
     it { should belong_to :product }
     it { should belong_to :warehouse }
   end
-
-  describe "instance methods" do
-  end
 end
