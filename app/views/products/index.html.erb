@@ -28,6 +28,7 @@
       <% end %>
 
       <%= link_to "Edit #{product.name}", edit_product_path(product.id) %><br>
+      <%= link_to "Delete #{product.name}", product_path(product.id), method: :delete %>
 
       </section>
     </li>

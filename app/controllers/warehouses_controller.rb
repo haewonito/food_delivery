@@ -6,9 +6,6 @@ class WarehousesController < ApplicationController
   def show
     @warehouse = Warehouse.find(params[:id])
     @warehouse_products = @warehouse.warehouse_products
-    if params[:keyword]
-      @warehouse_product_found = WarehouseProduct.find(params[:keyword])
-    end
   end
 
   def new

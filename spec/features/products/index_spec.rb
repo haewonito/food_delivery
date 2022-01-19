@@ -35,4 +35,19 @@ RSpec.describe "Products Index Page", type: :feature do
       expect(page).to have_content("Total Value: $#{total_value}")
     end
   end
+
+  it "has a link to edit each product" do
+    within(".product#{@puff_pastry.id}") do
+      click_on "Edit #{@puff_pastry.name}"
+      expect(current_path).to eq(edit_product_path(@puff_pastry.id))
+    end
+  end
+
+  it "has a link to delete each product" do
+    within(".product#{@puff_pastry.id}") do
+      click_on "Delete #{@puff_pastry.name}"
+      expect(current_path).to eq(products_path)
+    end
+    expect(page).to_not have_content("#{@puff_pastry.name}")
+  end
 end
