@@ -2,17 +2,7 @@ class WarehouseProduct < ApplicationRecord
   belongs_to :product
   belongs_to :warehouse
 
-  # validates_presence_of :quantity
-  #
-  # def self.search(keyword)
-  #   if keyword.scan(/\D/).empty?  #true only if all digits or empty
-  #     find(keyword.to_i)
-  #   else
-  #     WarehouseProduct
-  #     .joins
-  #     .where("name ILIKE ?", "%#{keyword}%")
-  #   end
-  # end
+  validates_presence_of :quantity
 
   def unit_price
     product.unit_price

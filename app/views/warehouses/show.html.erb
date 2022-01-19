@@ -1,20 +1,6 @@
-<h2>Search for an warehouse_product by its ID or product name to add to the warehouse:</h2>
 <%= link_to "Edit #{@warehouse.location_name} Warehouse", edit_warehouse_path(@warehouse.id) %><br>
 
-<section>
-  <%= form_with url: warehouse_path(@warehouse.id), method: :get, local: true do |f| %>
-  <br><br>
-    <%= f.label :keyword, "Search inventory by ID to add to #{@warehouse.location_name} Warehouse:" %>
-    <%= f.text_field :keyword %>
-    <%= f.submit "Submit Search" %><br>
-  <% end %>
-  <% if @warehouse_product_found %>
-    <%= link_to "WarehouseProduct #{@warehouse_product_found.id}", warehouse_product_path(@warehouse_product_found.id) %>
-    <%= button_to "Add Inventory to the #{@warehouse.location_name} Warehouse", warehouse_products_path(@warehouse.id, @warehouse_product_found.id), method: :post %>
-  <% end %>
-</section>
-
-<h3>Warehouse Details: </h3>
+<h2><%= @warehouse.location_name %> Warehouse Contact Information: </h2>
 
 <p class="phone_number">
 Phone Number: <%= @warehouse.phone_number %><br>
@@ -22,7 +8,7 @@ Phone Number: <%= @warehouse.phone_number %><br>
 <p class="address">
 Address: <%= @warehouse.address %><br>
 </p>
-
+<p>***If you need to make changes in <%= @warehouse.location_name %> warehouse's inventory, go to Products or Inventories page</p>
 <h2>List of Products for <%= "#{@warehouse.location_name}" %> Warehouse:</h2>
 
 <% @warehouse_products.each do |warehouse_product| %>
@@ -42,6 +28,5 @@ Address: <%= @warehouse.address %><br>
     <p class="total_value">
     Total Value: $<%= warehouse_product.total_value %><br><br>
     </p>
-    <%= link_to "Delete", warehouse_products_path(warehouse_product.id), method: :delete %>
   </section>
 <% end %>

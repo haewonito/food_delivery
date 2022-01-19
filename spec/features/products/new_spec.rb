@@ -6,7 +6,6 @@ RSpec.describe 'Product Create Page' do
   end
 
   it 'has a form to create a new product' do
-
     fill_in 'Product Name', with: "Ice Cream"
     fill_in 'Unit Price:', with: "10.99"
     fill_in 'Available Quantity:', with: "500"
@@ -23,7 +22,6 @@ RSpec.describe 'Product Create Page' do
   end
 
   it 'gives error messge if a new product fails to create' do
-
     fill_in 'Name:', with: "Spinach"
     click_button 'Save'
 

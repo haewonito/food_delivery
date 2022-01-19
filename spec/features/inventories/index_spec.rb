@@ -55,7 +55,6 @@ RSpec.describe "Inventories Index Page", type: :feature do
     end
 
     it "for each inventory, I see a button to delete and it deletes" do
-
       within(first('.warehouse_product')) do
         click_link "Delete"
         expect(current_path).to eq("/warehouse_products")

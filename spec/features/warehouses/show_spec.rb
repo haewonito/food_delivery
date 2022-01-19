@@ -31,41 +31,10 @@ RSpec.describe "Warehouse Show Page", type: :feature do
       expect(page).to have_content("Quantity: #{warehouse_product.quantity}")
       expect(page).to have_content("Total Value: $#{warehouse_product.total_value}")
     end
-
-  end
-
-  xit "can search for inventories by id and, get a link to the show page" do
-    expect(page).to_not have_content("WarehouseProduct ID: #{@inv2.id}")
-
-    fill_in :keyword, with: "#{@inv2.id}"
-    click_button "Submit Search"
-
-    click_link "WarehouseProduct #{@inv2.id}"
-    expect(current_path).to eq("/warehouse_products/#{@inv2.id}")
-  end
-
-  xit "can search for inventories by id and add it to the warehouse" do
-    expect(page).to_not have_content("WarehouseProduct ID: #{@inv2.id}")
-
-    fill_in :keyword, with: "#{@inv2.id}"
-    click_button "Submit Search"
-    click_button "Add to the #{@denver_warehouse.location_name} Warehouse"
-
-    expect(page).to have_content("WarehouseProduct ID: #{@inv2.id}")
-    expect(@denver_warehouse.warehouse_products).to include(@inv2)
   end
 
   it "I see a button to edit warehouse" do
     click_link "Edit #{@denver_warehouse.location_name} Warehouse"
     expect(current_path).to eq(edit_warehouse_path(@denver_warehouse.id))
-  end
-
-  xit "for each warehouse_product, I see a button to remove from the list" do
-
-    within(".warehouse_product#{@inv1.id}") do
-      click_link "Delete"
-      expect(current_path).to eq(warehouse_products_path)
-    end
-    expect(page).to_not have_content("WarehouseProduct ID: #{@inv1.id}")
   end
 end
