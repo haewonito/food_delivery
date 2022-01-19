@@ -1,3 +1,5 @@
+# Food Delivery
+
 ![rails-badge](https://img.shields.io/badge/Rails-5.2.6-informational?style=flat-square) ![ruby-badge](https://img.shields.io/badge/Ruby-2.7.2-informational?style=flat-square)
 
 This Rails APP tracks inventories for a logistics company, created for my application to Shopify's Backend Engineering Internship program.
@@ -14,13 +16,13 @@ This Rails APP tracks inventories for a logistics company, created for my applic
 #### Stack
 - Ruby on Rails, RSpec, PostgreSQL
 
-# Readme Content
+## Readme Content
 - [Local Setup](#local-setup)
 - [Test Suite](#test-suite)
 - [Database Schema](#database-schema)
 - [Contributor](#contributor)
 
-# Local Setup
+## Local Setup
 - Versions
   - Rails 5.2.6
   - Ruby 2.7.2
@@ -42,14 +44,14 @@ This Rails APP tracks inventories for a logistics company, created for my applic
   - Your server will be running on port 3000, so navigate to http://localhost:3000 in your internet browser
 
 
-# Test Suite
+## Test Suite
 - `bundle exec rspec` in your terminal to run the tests
 - All tests shoud pass
 - 100% test coverage by SimpleCov
 
-# Database Schema
+## Database Schema
 
  <img width="1043" alt="Screen Shot 2022-01-18 at 11 38 28 PM" src="https://user-images.githubusercontent.com/86392608/150077592-ee0e4c34-e710-4c27-8f39-ad0fd70217ba.png">
 
-# Contributor
+## Contributor
 - Haewon Jeon |  [Github](https://github.com/haewonito/)  |  [LinkedIn](https://www.linkedin.com/in/leah-riffell/)
