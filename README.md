@@ -43,8 +43,8 @@ This Rails APP tracks inventories for a logistics company, created for my applic
 
 
 # Test Suite
-- Run with `bundle exec rspec`
-- All tests should be passing
+- `bundle exec rspec` in your terminal to run the tests
+- All tests shoud pass
 - 100% test coverage by SimpleCov
 
 # Database Schema
