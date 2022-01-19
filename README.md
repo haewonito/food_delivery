@@ -30,7 +30,7 @@ This Rails APP tracks inventories for a logistics company, created for my applic
   - [PostgreSQL](https://www.postgresql.org/docs/12/tutorial-install.html)
 - To check your Ruby and Rails versions, type `ruby -v` or `rails -v` in your terminal
 - Fork and clone the repository
-- In the terminal, type `cd food_delivery`
+- `cd food_delivery` to get into the directory
   - To install gems:
     -  `bundle`
   - To setup database:
@@ -38,7 +38,7 @@ This Rails APP tracks inventories for a logistics company, created for my applic
     - `rails db:migrate`
     - `rails db:seed`
 - Run your own development server:
-  - In the terminal, type `rails s`
+  - `rails s`
   - Your server will be running on port 3000, so navigate to http://localhost:3000 in your internet browser
 
 
